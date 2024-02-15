@@ -1,2 +1,2 @@
-# Vue 3 + TypeScript for SOMNONG
+# SOMNONG Project
 
