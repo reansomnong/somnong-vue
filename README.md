@@ -1,2 +1,4 @@
-# SOMNONG Project
+# SOMNONG Project + API
 
+
+## Recommended IDE Setup
