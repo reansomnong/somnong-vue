@@ -93,7 +93,7 @@ export const useUserStore = defineStore({
             });
         },
         async getExistEmail(Checking: Is_existing) {
-            await api.post<DataResponse<Userinfo[]>>('v1/gb/ch_user_email', Checking)
+            await api.post<DataResponse<Userinfo[]>>('v1/public/ch_user_email', Checking)
                 .then(async (response) => {
                     if (response.data.success) {
                         this.userinfo = response.data.data;
