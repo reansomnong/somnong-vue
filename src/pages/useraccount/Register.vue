@@ -5,9 +5,8 @@ import MainColorSwitcher from "../../components/MainColorSwitcher";
 import logoUrl from "../../assets/images/logo.svg";
 import illustrationUrl from "../../assets/images/illustration.svg";
 import Button from "../../base-components/Button";
-import TomSelect from "../../base-components/TomSelect";
 
-import { ref, reactive, onMounted, computed, ComputedRef, watch, provide } from "vue";
+import { ref, reactive, onMounted, computed, watch, provide } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 
 import { required, minLength, helpers } from "@vuelidate/validators";
@@ -15,18 +14,12 @@ import { Dialog } from "../../base-components/Headless";
 import {
   FormInput,
   FormCheck,
-  FormLabel,
   FormSelect,
-  FormTextarea,
 } from "../../base-components/Form";
 import Lucide from "../../base-components/Lucide";
-import Tippy from "../../base-components/Tippy";
-import { Menu } from "../../base-components/Headless";
 
 import { CreateBranch } from "../../models/admin/Branch";
 import { useRegisterStore } from "../../stores/admin/Register";
-import Toastify from "toastify-js";
-import { SelectedFile } from "../../models/admin/SelectedFile";
 
 //Message
 import { NotificationElement } from "../../base-components/Notification";
@@ -60,7 +53,6 @@ const cbo_system = ref("0");
 const ch = reactive<Is_existing>({} as Is_existing);
 
 
-const sendButtonRef = ref(null);
 const message = useMessageStore();
 
 const message_alert = ref("");

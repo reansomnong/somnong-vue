@@ -40,7 +40,7 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const formData = reactive({
-  username: "",
+  username: "joincoder@gmail.com",
   password: "",
 });
 
