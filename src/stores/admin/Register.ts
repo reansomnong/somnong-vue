@@ -33,7 +33,7 @@ interface RegisterStore {
     actions: {
 
         async systems() {
-            await api.get<DataResponse<Combo[]>>('v1/gb/systems').then((response) => {
+            await api.get<DataResponse<Combo[]>>('v1/public/systems').then((response) => {
               this.System = response.data.data;
             }).catch((error: AxiosError) => {
                 if (error.response && error.response.data) {
