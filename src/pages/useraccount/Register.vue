@@ -75,8 +75,6 @@ const existing_email = computed(() => {
   return Users.getEmail;
 });
 
-
-
 function resetForm() {
   dataForm.status = 'i';
   dataForm.branch_code = "";
@@ -117,7 +115,7 @@ async function create() {
   ch.cmd = "email";
   ch.email = dataForm.email;
 
-  await Users.getExistEmail(ch);
+  await Users.pbExistEmail(ch);
   if (existing_email.value[0].is_existing == true) {
     setSuccessModalPreview(true);
     return;
@@ -158,16 +156,15 @@ async function create() {
         <div class="flex-col hidden min-h-screen xl:flex">
           <a href="" class="flex items-center pt-5 -intro-x">
             <img alt="Midone Tailwind HTML Admin Template" class="w-6" :src="logoUrl" />
-            <span class="ml-3 text-lg text-white">TC</span>
+            <span class="ml-3 text-lg text-white">iT-KH</span>
           </a>
           <div class="my-auto">
             <img alt="Midone Tailwind HTML Admin Template" class="w-1/2 -mt-16 -intro-x" :src="illustrationUrl" />
             <div class="mt-10 text-4xl font-medium leading-tight text-white -intro-x">
-              ស្វាគមន៍មកកាន់ប្រព័ន្ធគ្រប់គ្រង<br />
-              ស្វ័យប្រវត្តិ ២០២៤.
+              ប្រព័ន្ធគ្រប់គ្រងអាវីកម្ម ៥.០
             </div>
             <div class="mt-5 text-lg text-white -intro-x text-opacity-70 dark:text-slate-400">
-              គ្រប់គ្រង អាជីវកម្មរបស់អ្នកនៅមួយកន្លែង
+              Manage Your Business from Anywhere. 
             </div>
           </div>
         </div>

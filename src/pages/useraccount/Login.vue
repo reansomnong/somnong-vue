@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import { Login } from '../../models/Login';
-import { reactive, computed, toRefs } from 'vue';
+import { reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
 import useVuelidate from '@vuelidate/core';
 import Toastify from "toastify-js";
 import Notification from "../../base-components/Notification";
 
-import Preview from "../../base-components/Preview";
 import {
-  FormSwitch,
-  FormLabel,
   FormInput,
-  FormTextarea,
   FormCheck,
 } from "../../base-components/Form";
 
@@ -20,9 +16,6 @@ import {
   minLength,
   maxLength,
   email,
-  url,
-  integer,
-  helpers,
 } from "@vuelidate/validators";
 
 import Button from "../../base-components/Button";
@@ -40,8 +33,10 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const formData = reactive({
-  username: "",
-  password: "",
+  username: "joincoder@gmail.com",
+  password: "123456789",
+  // username: "joincoder@gmail.com",
+  // password: "123456789",
 });
 
 const rules = {
@@ -77,6 +72,7 @@ async function onSubmit() {
 
     logincredentials.username = formData.username;
     logincredentials.password = formData.password;
+    
     var response = await authStore.login(logincredentials);
 
     if (response) {
@@ -117,7 +113,7 @@ async function onSubmit() {
           <div class="flex-col hidden min-h-screen xl:flex">
             <a href="" class="flex items-center pt-5 -intro-x">
               <img alt="Midone Tailwind HTML Admin Template" class="w-6" :src="logoUrl" />
-              <span class="ml-3 text-lg text-white">TC</span>
+              <span class="ml-3 text-lg text-white">iT-KH</span>
             </a>
             <div class="my-auto">
               <img alt="Midone Tailwind HTML Admin Template" class="w-1/2 -mt-16 -intro-x" :src="illustrationUrl" />

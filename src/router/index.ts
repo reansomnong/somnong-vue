@@ -5,6 +5,7 @@ import DashboardOverview2 from "../pages/DashboardOverview2.vue";
 import DashboardOverview3 from "../pages/DashboardOverview3.vue";
 import DashboardOverview4 from "../pages/DashboardOverview4.vue";
 import ErrorPage from "../pages/ErrorPage.vue";
+import AccessDenied from "../pages/AccessDenied.vue";
 
 import admin_menu from "./admin"
 import setting_menu from "./setting"
@@ -21,21 +22,25 @@ const routes = [
         path: "dashboard-overview-1",
         name: "side-menu-dashboard-overview-1",
         component: DashboardOverview1,
+        meta: { requiresAuth: true },
       },
       {
         path: "/",
         name: "side-menu-dashboard-overview-2",
         component: DashboardOverview2,
+        meta: { requiresAuth: true },
       },
       {
         path: "dashboard-overview-3",
         name: "side-menu-dashboard-overview-3",
         component: DashboardOverview3,
+        meta: { requiresAuth: true },
       },
       {
         path: "dashboard-overview-4",
         name: "side-menu-dashboard-overview-4",
         component: DashboardOverview4,
+        meta: { requiresAuth: true },
       },
       ...setting_menu,
       ...pos_menu,
@@ -53,6 +58,16 @@ const routes = [
     path: "/:pathMatch(.*)*",
     component: ErrorPage,
   },
+
+  {
+    path: '/:catchAll(.*)*',
+    component: ErrorPage,
+  },
+  {
+    path: '/accessdenied',
+    component: AccessDenied,
+  },
+
 ];
 
 const router = createRouter({
@@ -64,8 +79,6 @@ const router = createRouter({
 });
 
 export default router;
-
-
 
 router.beforeEach((to) => {
   if (to.meta.requiresAuth) {

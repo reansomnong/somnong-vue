@@ -8,7 +8,6 @@ import { useAlertStore } from '../pos/Alert';
 import { ErrorResponse } from '../../models/Responses/ErrorResponse';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}`;
-
 interface RegisterStore {
     System: Combo[];
     BranchDetail: CreateBranch;
@@ -33,7 +32,7 @@ interface RegisterStore {
     actions: {
 
         async systems() {
-            await api.get<DataResponse<Combo[]>>('v1/public/systems').then((response) => {
+            await api.get<DataResponse<Combo[]>>('v1/pb/systems').then((response) => {
               this.System = response.data.data;
             }).catch((error: AxiosError) => {
                 if (error.response && error.response.data) {
@@ -45,7 +44,7 @@ interface RegisterStore {
         },
         async registerStore(dataBranch:CreateBranch) {
             return await api
-              .post<DataResponse<CreateBranch>>(baseUrl + 'v1/gb/registerStore', dataBranch)
+              .post<DataResponse<CreateBranch>>(baseUrl + 'v1/pb/registerStore', dataBranch)
               .then(async (response) => {
                 if (response.data.success) {
                   return response.data.success;
